@@ -1,0 +1,324 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color1: #CDBA9D;
+    --color2: #231D17;
+    --color3: #FEF8F0;
+    --color4: #2783A0;
+    --color5: #343553;
+}
+/* GENERAL */
+body{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 400;
+}
+p{
+    width: 100%;
+    text-align: center;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.align-center{
+    align-items: center;
+}
+/* SPRITE */
+.picto{
+    width: 197px;
+    height: 196px;
+    background-image: url(img/pictos-weather.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+.orage{
+    background-position-y: 0;
+}
+.pluie{
+    background-position-y: -199px;
+}
+.soleil-nuage{
+    background-position-y: -398px;
+}
+.nuage{
+    background-position-y: -597px;
+}
+.vent{
+    background-position-y: -796px;
+}
+.soleil{
+    background-position-y: -995px;
+}
+.neige{
+    background-position-y: -1194px;
+}
+.picto-jour-nuit{
+    width: 96px;
+    height: 96px;
+    background-image: url(img/daynight-pictos.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+.jour{
+    background-position-x: 0;
+}
+.nuit{
+    background-position-x: -116px;
+}
+.mini-pictos{
+    width: 96px;
+    height: 96px;
+    background-image: url(img/minipictos.png);
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+.mini-nuage{
+    background-position-x: 0;
+}
+.mini-soleil{
+    background-position-x: -116px;
+}
+.mini-pluie{
+    background-position-x: -232px;
+}
+.mini-mitige{
+    background-position-x: -348px;
+}
+.mini-orage{
+    background-position-x: -464px;
+}
+.mini-neige{
+    background-position-x: -580px;
+}
+/* GRID */
+#grille{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    gap: 10px;
+    padding: 15px;
+}
+/* INTERFACE METEO */
+body>div{
+    background-color: rgba(212, 199, 172, 0.267);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    box-shadow: inset -8px -8px 10px rgba(255, 255, 255, 0.5),
+    inset 8px 8px 10px rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    gap: 15px;
+}
+/* Date heure */
+.date-heure{
+    grid-column: 1 / 3;
+    grid-row: 1 / 4;
+}
+.date-heure .date{
+    font-size: 4rem;
+    color: var(--color5);
+}
+.date-heure .heure{
+    font-size: 2rem;
+    color: var(--color5);
+}
+/* Vide 1 */
+.vide1{
+    grid-column: 1;
+    grid-row: 4 / 6;
+    background-color: var(--color4);
+    box-shadow: inset -8px -8px 10px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 10px rgba(255, 255, 255, 0.5);
+}
+/* Picto jour nuit */
+.jour-nuit{
+    grid-column: 2;
+    grid-row: 4 / 6;
+}
+/* Météo actuelle */
+.meteo-actuelle{
+    grid-column: 3 / 6;
+    grid-row: 1 / 6;
+}
+.temps-actuel{
+    font-size: 2rem;
+    color: var(--color5);
+}
+.temp-max{
+    font-size: 4rem;
+    color: var(--color5);
+}
+.temp-min{
+    font-size: 2rem;
+    color: var(--color4);
+}
+/* Vide 2 */
+.vide2{
+    grid-column: 6 / 8;
+    grid-row: 1;
+    background-color: var(--color4);
+    box-shadow: inset -8px -8px 10px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 10px rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 2rem;
+    font-weight: 400;
+}
+/* Vent */
+.vent{
+    grid-column: 6 / 8;
+    grid-row: 2 / 6;
+}
+.boussole{
+    width: fit-content;
+    position: relative;
+}
+.aiguille{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+/* Meteo horaire */
+.meteo-h{
+    grid-column: 1 / 8;
+    grid-row: 6 / 8;
+    justify-content: flex-start;
+    overflow-x: scroll;
+}
+.container-meteo-h1{
+    height: 100%;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+.meteo-h1{
+    width: 130px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: inset -8px -8px 15px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 15px rgba(255, 255, 255, 0.5);
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+}
+.meteo-h p{
+    width: fit-content;
+}
+.meteo-h1 img{
+    filter: invert();
+}
+.meteo-h1 div p{
+    color: white;
+    padding-left: 8px;
+}
+/* Meteo Hebdomadaire */
+.meteo-j{
+    grid-column: 1 / 8;
+    grid-row: 8 / 11;
+    justify-content: flex-start;
+}
+.container-meteo-j1{
+    width: 100%;
+    height: 100%;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: space-between;
+}
+.meteo-j1{
+    width: 200px;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: inset -8px -8px 15px rgba(0, 0, 0, 0.5),
+    inset 8px 8px 15px rgba(255, 255, 255, 0.5);
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.date-j{
+    font-size: 1.5rem;
+}
+.temp-j-max{
+    font-size: 2rem;
+    color: var(--color5);
+}
+
+@media screen and (max-width: 575px) {
+    body{
+        height: auto;
+    }
+    #grille{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        gap: 10px;
+        padding: 15px;
+    }
+    /* Date heure */
+    .date-heure{
+        grid-column: 1;
+        grid-row: 2;
+    }
+    /* Vide 1 */
+    .vide1{
+        display: none;
+    }
+    /* Picto jour nuit */
+    .jour-nuit{
+        display: none;
+    }
+    /* Météo actuelle */
+    .meteo-actuelle{
+        grid-column: 1;
+        grid-row: 3;
+    }
+    /* Vide 2 */
+    .vide2{
+        grid-column: 1;
+        grid-row: 1;
+        background-color: var(--color4);
+        box-shadow: inset -8px -8px 10px rgba(0, 0, 0, 0.5),
+        inset 8px 8px 10px rgba(255, 255, 255, 0.5);
+        color: white;
+        font-size: 2rem;
+        font-weight: 400;
+    }
+    /* Vent */
+    .vent{
+        grid-column: 1;
+        grid-row: 4;
+    }
+    /* Meteo horaire */
+    .meteo-h{
+        grid-column: 1;
+        grid-row: 5;
+        height: fit-content;
+    }
+    .meteo-h1{
+        height: 200px;
+    }
+    /* Meteo hebdomadaire */
+    .meteo-j{
+        grid-column: 1;
+        grid-row: 6;
+        overflow: scroll;
+        flex-wrap: nowrap;
+        gap: 10px;
+        justify-content: flex-start;
+    }
+    .container-meteo-j1{
+        width: fit-content;
+    }
+    .meteo-j1{
+        width: 300px;
+        height: 250px;
+    }
+}
